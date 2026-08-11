@@ -1,0 +1,12 @@
+# Compiled binaries
+/agent/agent
+
+# Environment files — copy the matching .env.example instead
+.env
+
+# OS cruft
+.DS_Store
+
+# Go build/test artifacts
+*.test
+*.out

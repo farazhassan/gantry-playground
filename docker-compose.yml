@@ -1,0 +1,25 @@
+# docker-compose.yml
+services:
+  agent:
+    build: ./agent
+    ports:
+      - "${AGUI_PORT:-8080}:${AGUI_PORT:-8080}"
+    environment:
+      AGUI_ADDR: ":${AGUI_PORT:-8080}"
+      LLM_PROVIDER: "${LLM_PROVIDER:-openrouter}"
+      OPENROUTER_API_KEY: "${OPENROUTER_API_KEY:-}"
+      OPENROUTER_MODEL: "${OPENROUTER_MODEL:-}"
+      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
+      ANTHROPIC_MODEL: "${ANTHROPIC_MODEL:-}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      OPENAI_MODEL: "${OPENAI_MODEL:-}"
+      OLLAMA_HOST: "${OLLAMA_HOST:-}"
+      OLLAMA_MODEL: "${OLLAMA_MODEL:-}"
+      AGUI_ALLOWED_ORIGINS: "${AGUI_ALLOWED_ORIGINS:-*}"
+
+  langport:
+    image: ghcr.io/langport-dev/langport:0.0.2
+    ports:
+      - "3000:80"
+    environment:
+      AGUI_PORT: "8080"
