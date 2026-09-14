@@ -18,7 +18,7 @@ services:
       AGUI_ALLOWED_ORIGINS: "${AGUI_ALLOWED_ORIGINS:-*}"
 
   langport:
-    image: ghcr.io/langport-dev/langport:0.0.2
+    image: ghcr.io/langport-dev/langport:0.2.3
     ports:
       - "3000:80"
     environment:
